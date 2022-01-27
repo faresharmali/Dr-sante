@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <div class="titleContainer">
+      <h1 >CABINET D'HEPATO GASTRO ENTEROLOGIE</h1>
+      <h2>Dr.Harmali Sofiane</h2>
+      <h3>Specialiste en Hépato Gastro Entérologie Proctologie et Endoscopie</h3>
+    </div>
+    <title>Facture</title>
+  </head>
+  <body>
+    <section id="window" class="devis">
+      <div class="patientContainer">
+        <h1 class="date"></h1>
+        <h1 class="patient"></h1>
+
+      </div>
+      <div id="Save_btn">Imprimer</div>
+
+      <section id="contnet" class="devis2">
+        <div class="logo_container">
+          <img id="societeImg" />
+        </div>
+
+        <div class="societe_info_container">
+          <div class="title">
+            <h1>Facture</h1>
+          </div>
+        </div>
+
+        <div class="table_container">
+          <table id="customers2" class="facture_table">
+            <thead>
+              <tr>
+                <th>N</th>
+                <th>Description</th>
+                <th>Prix unitaire HT</th>
+                <th>Qte</th>
+                <th>Prix total HT</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </section>
+
+        <div class="footer">
+          <h2 id="societeDetails">Adresse: Lotissement Herkat à 150m de l'hopital Mohamed Boudiaf Herkat-Bouira 10000
+          </h2>
+          <h2 id="societeadresse">
+            Telephone: 0556538469
+          </h2>
+        </div>
+    </section>
+   
+    <script>
+      const { ipcRenderer } = require("electron");
+      ipcRenderer.on("factureDetails", (e, result) => {
+        console.log(result)
+        let dateA = new Date();
+        let elements = result.elements;
+        let RemiseTotal = 0;
+        let PrixAvantTaxe = 0;
+        const table2 = document.querySelector(".table2");
+        const table = document.querySelector(".facture_table");
+        elements.forEach((p) => {
+          var node;
+          let child = document.createElement("tr");
+          let id = document.createElement("td");
+          node = document.createTextNode(elements.indexOf(p) + 1);
+          id.appendChild(node);
+          child.appendChild(id);
+          let nom = document.createElement("td");
+          node = document.createTextNode(p.description);
+          nom.appendChild(node);
+          child.appendChild(nom);
+          let category = document.createElement("td");
+          node = document.createTextNode(p.qte);
+          category.appendChild(node);
+          let quantityAchete = document.createElement("td");
+          node = document.createTextNode(p.prix+" Da");
+          quantityAchete.appendChild(node);
+          child.appendChild(quantityAchete);
+          child.appendChild(category);
+          let Prix = document.createElement("td");
+          node = document.createTextNode(p.qte * p.prix+" Da");
+          Prix.appendChild(node);
+          child.appendChild(Prix);
+          table.appendChild(child);
+        });
+        let child = document.createElement("tr");
+        let emptyTd1 = document.createElement("td");
+        emptyTd1.classList.add("emptyTd");
+        let emptyTd2 = document.createElement("td");
+        emptyTd2.classList.add("emptyTd");
+        let emptyTd3 = document.createElement("td");
+        emptyTd3.classList.add("emptyTd");
+
+        let nom = document.createElement("td");
+        nom.style.fontWeight = "600";
+        node = document.createTextNode("Total HT");
+        nom.appendChild(node);
+        child.appendChild(emptyTd1);
+        child.appendChild(emptyTd2);
+        child.appendChild(emptyTd3);
+
+        child.appendChild(nom);
+        nom = document.createElement("td");
+        node = document.createTextNode(result.PrixTotal+" Da");
+        nom.appendChild(node);
+        child.appendChild(nom);
+        table.appendChild(child);
+
+         child = document.createElement("tr");
+         emptyTd1 = document.createElement("td");
+        emptyTd1.classList.add("emptyTd");
+         emptyTd2 = document.createElement("td");
+        emptyTd2.classList.add("emptyTd");
+         emptyTd3 = document.createElement("td");
+        emptyTd3.classList.add("emptyTd");
+
+         nom = document.createElement("td");
+        nom.style.fontWeight = "600";
+        node = document.createTextNode("TVA"+"("+result.TVA+"%)");
+        nom.appendChild(node);
+        child.appendChild(emptyTd1);
+        child.appendChild(emptyTd2);
+        child.appendChild(emptyTd3);
+
+        child.appendChild(nom);
+        nom = document.createElement("td");
+        node = document.createTextNode(result.PrixTotal*(result.TVA/100)+" Da");
+        nom.appendChild(node);
+        child.appendChild(nom);
+        table.appendChild(child);
+
+         child = document.createElement("tr");
+         emptyTd1 = document.createElement("td");
+        emptyTd1.classList.add("emptyTd");
+         emptyTd2 = document.createElement("td");
+        emptyTd2.classList.add("emptyTd");
+         emptyTd3 = document.createElement("td");
+        emptyTd3.classList.add("emptyTd");
+
+         nom = document.createElement("td");
+        nom.style.fontWeight = "600";
+        node = document.createTextNode("Total TTC");
+        nom.appendChild(node);
+        child.appendChild(emptyTd1);
+        child.appendChild(emptyTd2);
+        child.appendChild(emptyTd3);
+
+        child.appendChild(nom);
+        nom = document.createElement("td");
+        node = document.createTextNode(result.PrixTotal*(result.TVA/100)+result.PrixTotal+" Da");
+        nom.appendChild(node);
+        child.appendChild(nom);
+        table.appendChild(child);
+        document.getElementsByClassName("patient")[0].innerHTML=result.patient.Nom+" "+result.patient.Prenom+" "+result.age+" Ans"
+        document.getElementsByClassName("date")[0].innerHTML="Date : "+result.date
+      });
+        setTimeout(() => {
+          
+          window.print(); 
+        }, 200);
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,375 @@
+.medicContainer{
+    width: 100%;
+    margin-top: 10%;
+   
+    padding: 0 30px;
+}
+.flex h1{
+   font-size: 17px;
+   font-family: sans-serif;
+}
+#container1 h1{
+   font-size: 17px;
+   font-family: sans-serif;
+   text-transform: uppercase;
+}
+#container h1{
+   font-size: 17px;
+   font-family: sans-serif;
+
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0;
+
+}
+@media print{
+    button{
+        display: none;
+    }
+ }
+ #container1{
+     margin-top: 31%;
+     margin-left: 15%;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ body{position: relative;}
+ #container p{
+    line-height: 30px;
+ }
+ .containersContainer{
+     width: 100%;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+ }
+ .firstContainer{
+     width: 100%;
+ }
+ .SecondContainer{
+     width: 100%;
+ 
+ }
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+  /* cyrillic */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  /* greek-ext */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2) format('woff2');
+    unicode-range: U+1F00-1FFF;
+  }
+  /* greek */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+  }
+  /* vietnamese */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCxc4EsA.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  #window {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-rows:0.07fr 1fr 0.1fr;
+  }
+  .devis {
+    width: 100%;
+    height: 50vh;
+  }
+  .devis2 {
+
+    width: 100%;
+    height: 60vh;
+  }
+  .logo_container {
+    width: 100%;
+    text-align: center;
+  }
+  .logo_container img {
+    width: 130px;
+    text-align: center;
+  }
+  .societe_info_container {
+    width: 100%;
+    text-align: center;
+  }
+  .societe_info_container h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .societe_info_container h3 {
+    font-size: 16px;
+  }
+  
+  .title {
+    width: 35%;
+    margin: 0 auto;
+    padding: 5px;
+    padding-bottom: 0;
+    border: 4px solid #232e42;
+  
+  }
+  .title h1{
+    font-size: 22px;
+    border: 2px solid #232e42;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+  
+  }
+  .societe_details {
+    padding: 20px;
+    width: 100%;
+  }
+  .societe_details h2 {
+    
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .bail_detail {
+    margin-top: 30px;
+    margin-left: 40px !important;
+  }
+  .bail_detail h2 {
+    font-weight: bold;
+  }
+  .table_container {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 30px;
+
+  }
+  .facture_table {
+    border-spacing: 0;
+    width: 100%;
+    border-bottom: none;
+  }
+  .table2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    border-spacing: 0;
+    width: 40%;
+    border: 2px solid #232e42;
+    border-bottom: none;
+  }
+  thead tr {
+    height: 25px;
+  }
+  .emptyTd{
+    border: none !important;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #232e42;
+  }
+  
+  .footer {
+    width: 100%;
+    text-align: center;
+    border-top: 2px solid #232e42;
+    padding-top: 10px;
+  }
+  .footer h2 {
+    font-size: 15px;
+  }
+  @media print {
+    button {
+      display: none;
+    }
+  }
+  .montantEnLettre {
+    text-transform: capitalize;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  /*historiqe */
+  .History_table_container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .historyTitle {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .entitycontainer{
+    display: flex;
+    justify-content: space-between;
+  }
+  h2,h1,td,th{
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  #customers {
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td,
+  #customers th {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #customers tr:hover {
+    background-color: #ddd;
+  }
+  
+  #customers th ,#customers2 th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #232e42;
+    color: white;
+  }
+  @media print {
+    #customers th {
+        -webkit-print-color-adjust: exact; 
+    }
+    #customers2 th {
+        -webkit-print-color-adjust: exact; 
+    }
+  }
+  #logo{
+    height: 120px;
+    margin: 0 auto;
+  }
+  .historystuff{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  #tableStyle{
+    margin-top: 20px;
+    border-spacing: 0;
+    width: 100%;
+  }
+  #tableStyle th{
+    font-weight: 600;
+  }
+  #Save_btn{
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232e42;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    }
+    @media print {
+      #Save_btn{display: none;}
+   }
+   @media print {
+    #customers {
+      page-break-after: always;
+    }
+    #tableStyle {
+      page-break-after: always;
+    }
+  }
+  .titleContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top:20px ;
+  }
+  .titleContainer h1{
+    color: #232e42;
+    font-size: 18px;
+    border-bottom: 1px solid #232e42;
+  }
+  .titleContainer h2{
+    margin-top: 5px;
+    color: #232e42;
+    font-size: 18px;
+  }
+  .titleContainer h3{
+    margin-top: 5px;
+    color: #232e42;
+    font-size: 17px;
+  }
+
+  
+  .patientContainer h1 {
+    margin: 0 !important;
+    margin-bottom: 7px !important;
+    font-size: 18px;
+    font-family: 'Roboto';
+
+  }
+  .patientContainer{
+    padding: 10px;
+  }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+      <div id="container1" ></div>
+    <div id="container" class="medicContainer"></div>
+    <button id="Save_btn">save</button>
+
+    <script>
+      const { ipcRenderer } = require("electron");
+      let container = document.getElementById("container");
+      let container1 = document.getElementById("container1");
+      ipcRenderer.on("proforma", (e, result) => {
+        let Medics = result.SelectedMedicaments;
+        let Patient = result.selectedPatient;
+        let NomPrenom = document.createElement("h1");
+        let Age = document.createElement("h1");
+        let node5 = document.createTextNode(Patient.Nom+" "+Patient.Prenom);
+        let node6 = document.createTextNode(result.age+" Ans");
+        NomPrenom.appendChild(node5)
+        Age.appendChild(node6)
+        container1.appendChild(NomPrenom)
+        container1.appendChild(Age)
+        Medics.forEach((element) => {
+          let Div = document.createElement("div");
+          Div.classList.add("flex")
+          let medic = document.createElement("h1");
+          medic.style.textDecoration="underline"
+          let Dose = document.createElement("h1");
+          Dose.style.marginLeft="30px"
+          Dose.style.marginTop="2px"
+          Dose.style.marginBottom="5px"
+
+          let Qte = document.createElement("h1");
+          let node = document.createTextNode(element.label);
+          let node2 = document.createTextNode("     " +element.Dose);
+          let node3 = document.createTextNode(element.qte);
+          medic.appendChild(node);
+          Dose.appendChild(node2);
+          Qte.appendChild(node3);
+          Div.appendChild(medic);
+          Div.appendChild(Qte);
+          container.appendChild(Div);
+          container.appendChild(Dose);
+        });
+      });
+      ipcRenderer.on("Print", (e, result) => {
+        setTimeout(() => {
+          window.print();
+
+        }, 100);
+      })
+
+  
+    </script>
+  </body>
+</html>

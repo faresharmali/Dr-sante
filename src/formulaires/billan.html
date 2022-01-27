@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+      <div id="container1" ></div>
+    <div id="container" class="medicContainer containersContainer">
+      <div id="firstContainer" class="firstContainer"></div>
+      <div id="SecondContainer" class="SecondContainer"></div>
+    </div>
+
+    <script>
+      const { ipcRenderer } = require("electron");
+      let container = document.getElementById("firstContainer");
+      let scontainer = document.getElementById("SecondContainer");
+      let container1 = document.getElementById("container1");
+      ipcRenderer.on("printBillan", (e, result) => {
+          console.log(result)
+        let Medics = result.SelectedMedicaments;
+        let Patient = result.selectedPatient;
+        console.log(Patient)
+        let NomPrenom = document.createElement("h1");
+        let Age = document.createElement("h1");
+        let node5 = document.createTextNode(Patient.Nom+" "+Patient.Prenom);
+        let node6 = document.createTextNode(result.age+" Ans");
+        NomPrenom.appendChild(node5)
+        Age.appendChild(node6)
+        container1.appendChild(NomPrenom)
+        container1.appendChild(Age)
+        for(let i=0;i<=9;i++){
+          if(Medics[i]!=undefined){
+            let Div = document.createElement("div");
+          Div.classList.add("flex")
+          let medic = document.createElement("h1");
+          medic.style.textDecoration="underline"
+          medic.style.marginBottom="10px"
+          let node = document.createTextNode(Medics[i].SelectedMedics);
+          medic.appendChild(node);
+          Div.appendChild(medic);
+          container.appendChild(Div);
+          }
+         
+        }
+        for(let i=10;i<Medics.length;i++){
+          if(Medics[i]!=undefined){
+            let Div = document.createElement("div");
+          Div.classList.add("flex")
+          let medic = document.createElement("h1");
+          medic.style.textDecoration="underline"
+          medic.style.marginBottom="10px"
+          let node = document.createTextNode(Medics[i].SelectedMedics);
+          medic.appendChild(node);
+          Div.appendChild(medic);
+          scontainer.appendChild(Div);
+          }
+         
+        }
+       
+      });
+      ipcRenderer.on("printBillan", (e, result) => {
+        setTimeout(() => {
+          window.print();
+
+        }, 100);
+      })
+
+  
+    </script>
+  </body>
+</html>

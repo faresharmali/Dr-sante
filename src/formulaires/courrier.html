@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+      <div id="container1" ></div>
+    <div id="container" class="medicContainer"></div>
+    <button id="Save_btn">save</button>
+
+    <script>
+      const { ipcRenderer } = require("electron");
+      let container = document.getElementById("container");
+      let container1 = document.getElementById("container1");
+      ipcRenderer.on("PrintCourrier", (e, result) => {
+          console.log(result)
+        let Medics = result.SelectedMedicaments;
+        let Patient = result.selectedPatient;
+        console.log(Patient)
+        let NomPrenom = document.createElement("h1");
+        let Age = document.createElement("h1");
+        let node5 = document.createTextNode(Patient.Nom+" "+Patient.Prenom);
+        let node6 = document.createTextNode(result.age+" Ans");
+        NomPrenom.appendChild(node5)
+        Age.appendChild(node6)
+        container1.appendChild(NomPrenom)
+        container1.appendChild(Age)
+        container.innerHTML=result.renderedData
+      });
+      ipcRenderer.on("PrintCourrier", (e, result) => {
+        setTimeout(() => {
+          window.print();
+
+        }, 100);
+      })
+
+  
+    </script>
+  </body>
+</html>
