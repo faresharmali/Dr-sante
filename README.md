@@ -3,7 +3,7 @@
 technologies used: React-Js Electron-js Mysql
 
 ```
-git clone https://github.com/bradtraversy/simple-electron-react.git
+git clone https://github.com/faresharmali/Dr-sante.git
 ```
 
 #### Install dependencies
@@ -28,9 +28,4 @@ npm  start
 npm run package
 ```
 
-#### Build the app (manual)
-
-```
-npm run build
-```
 
